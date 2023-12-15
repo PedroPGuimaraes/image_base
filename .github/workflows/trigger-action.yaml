@@ -1,6 +1,5 @@
 name: Disparar Action em Outro Repositório
 
-
 on:
   push:
     branches:
@@ -10,9 +9,10 @@ jobs:
   disparar-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: convictional/trigger-workflow-and-wait@v1.6.1
-      with:
-        owner: PedroPGuimaraes
-        repo: update_image_base
-        github_token: ${{ secrets.PAT_TOKEN }}
-        workflow_file_name: updateBaseImage.yaml
+      - name: Disparar ação
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: PedroPGuimaraes
+          repo: update_image_base
+          github_token: ${{ secrets.PAT_TOKEN }}
+          workflow_file_name: updateBaseImage.yaml
