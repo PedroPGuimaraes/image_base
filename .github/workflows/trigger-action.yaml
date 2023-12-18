@@ -16,3 +16,4 @@ jobs:
           repo: update_image_base
           github_token: ${{ secrets.PAT_TOKEN }}
           workflow_file_name: updateBaseImage.yaml
+          wait_workflow: true
