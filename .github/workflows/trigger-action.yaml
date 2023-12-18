@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  disparar-action:
+  Run-Action:
     runs-on: ubuntu-latest
     steps:
       - name: Disparar ação
@@ -17,3 +17,10 @@ jobs:
           github_token: ${{ secrets.PAT_TOKEN }}
           workflow_file_name: updateBaseImage.yaml
           wait_workflow: true
+  Tests:
+    runs-on: ubuntu-latest
+    needs: Run-Action
+    steps:
+      - name: Teste
+        run: echo "Passou"
+    
